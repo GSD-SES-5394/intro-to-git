@@ -9,7 +9,7 @@ Git was originally written by Linus Torvalds, famous for his development of the 
 
 ## What is Github?
 
-Github is a website that provides a service of hosting git repositories with a very generous free tier of usage. What this means is that it is a free place to store your files that are being tracked by git.
+Github is a website that provides a service of hosting git repositories with a very generous free tier of usage. What this means is that it is a free place to store your files with git.
 
 There are many other alternatives to github, but github is quite popular for hobbyists, open source projects, and academia.
 
@@ -225,3 +225,25 @@ The basic workflow isn't going to work very well if you have multiple people wor
 9. Complete the Pull Request by merging to master
 10. Checkout master on your computer
 11. Pull to get the changes into your copy of master.
+
+If someone provides feedback during your pull request that requires you to make a change, you can make additional changes to the PR using steps 4-7.
+
+In this workflow, you never push to master. In fact you can configure your repo to disallow anyone to push directly to master. The only way to get code into master is through a pull request.
+
+You might find it helpful to perform steps 4-7 frequently. This means that even if your computer has a catastrophic failure you would still have a backup of the latest version of all of your files on the server. It also allows others to see what you are doing so you can easily collaborate with others.
+
+
+# Questions
+
+## Can I undo a commit?
+
+Under normal circumstances, I recommend that you do not. Its easier to look back in the history of the file and make a new commit that puts the file back the way you want it. But for mistakes like when you commit to the wrong branch sometimes it is necessary. The command is named reset.
+
+## Can I remove a commit from a branch on the server?
+
+Yes. A `push --force` can remove commits as well as add commits. But I would avoid doing this when possible. You can lose work.
+
+## What if two people change the same file?
+
+Don't do that. Git will attempt to merge the changes and for text files it may succeed. Other file types will always fail and ask you to resolve the conflict before merging.
+
