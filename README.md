@@ -185,7 +185,7 @@ Checkout switches which branch is the active branch and replaces the files in th
 
 After a file has been created or modified, you need to "add" the change to the **staging area**. The staging area is where we collect file changes to create a new commit. After we have added all of the files, then we commit them to the active branch with a commit message. This creates a new commit to the active branch and that commit becomes the new HEAD for that branch.
 
-![image](https://user-images.githubusercontent.com/2446659/80845873-2d701500-8bd0-11ea-883a-d5969668471e.png)
+![image](https://user-images.githubusercontent.com/2446659/80923594-47cdfe00-8d4a-11ea-81a6-9efa0fda86fd.png)
 <!--
 digraph G {
     rankdir="LR"
@@ -204,6 +204,31 @@ digraph G {
 
 There is no standard workflow for git. Every company and organization has different policies about how they branch and merge and push. This is one of the simplest ways to use git that is appropriate for a single individual working on a repository by themselves.
 
+![image](https://user-images.githubusercontent.com/2446659/80923543-15240580-8d4a-11ea-8c34-be88d9b58f6a.png)
+<!--
+digraph G {
+    rankdir="LR"
+    subgraph cluster_1 {
+        label = "Github"
+        subgraph cluster_2 {
+            label="Repository"
+            gm[label=master]
+        }
+    }
+    subgraph cluster_3 {
+        label = "Your Computer"
+        subgraph cluster_0 {
+            label="Repository"
+            master -> modified
+            modified -> staged [label=add]
+            staged -> master [label=commit]
+        }
+    }
+    
+    gm -> master [label=clone]
+    master -> gm [label=push]
+}
+-->
 1. Clone a repo from github.
 2. modify a file.
 3. add the file to stage the change
@@ -214,6 +239,34 @@ There is no standard workflow for git. Every company and organization has differ
 
 The basic workflow isn't going to work very well if you have multiple people working in the same repo and reviewing changes before they are merged into master. So something like this is more typical.
 
+![image](https://user-images.githubusercontent.com/2446659/80923486-c24a4e00-8d49-11ea-987f-3e92124dfd62.png)
+<!--
+digraph G {
+    rankdir="LR"
+    subgraph cluster_1 {
+        label = "Github"
+        subgraph cluster_2 {
+            label="Repository"
+            gm[label=master]
+            gb[label=Bob]
+            gb -> "Pull Request"
+            "Pull Request" -> gm [label=merge]
+        }
+    }
+    subgraph cluster_3 {
+        label = "Your Computer"
+        subgraph cluster_0 {
+            label="Repository"
+            master -> Bob [label=branch]
+            Bob -> modified
+            modified -> staged [label=add]
+            staged -> Bob [label=commit]
+        }
+    }
+    Bob -> gb [label=push]
+    gm -> master [label="clone"]
+}
+-->
 1. Clone a repo from github
 2. Branch from master to create a new branch (named for example "Bob")
 3. Checkout Bob
