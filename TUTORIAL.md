@@ -90,6 +90,8 @@ If you don't have your file explorer configured to see hidden files, then you wi
 
 ![image](https://user-images.githubusercontent.com/2446659/80925066-85368980-8d52-11ea-840b-9f5e4f825b02.png)
 
+## Modify a file
+
 Let's open up README.md in a text editor. Ideally, you should open it with a decent text editor (VS Code, Sublime Text, Notepad++, etc), but if you don't have one of those yet then you can use a terrible text editor like Notepad.
 
 ![image](https://user-images.githubusercontent.com/2446659/80925162-448b4000-8d53-11ea-9c7e-9ebd04987266.png)
@@ -97,3 +99,40 @@ Let's open up README.md in a text editor. Ideally, you should open it with a dec
 ![image](https://user-images.githubusercontent.com/2446659/80925094-bca53600-8d52-11ea-8911-00746a6aa608.png)
 
 ![image](https://user-images.githubusercontent.com/2446659/80925187-70a6c100-8d53-11ea-9312-634ed539558b.png)
+
+Let's edit our file with our terrible text editor and add a happy message.
+
+![image](https://user-images.githubusercontent.com/2446659/80925274-ff1b4280-8d53-11ea-9daf-c07611294b23.png)
+
+Make sure you save the file.
+
+Now if we look at the changes view in Github Desktop, it should tell us that one file has been modified and even show us what the modification was.
+
+![image](https://user-images.githubusercontent.com/2446659/80925476-a9e03080-8d55-11ea-9b20-d55ebb73af07.png)
+
+The right-side of the application is showing the file change as a "diff". The lines that start with a plus sign and are green are lines that have been added and lines that start with a minus sign and are red are lines that have been removed.
+
+## Commit a change
+
+On the bottom left side of Github Desktop is a place to commit your changes. Sometimes you need to stage files to indicate which changes you want to commit, but Github Desktop handles this for us, there's a checkbox next to each modified file for you to indicate which files you want to put in your commit. We need to add a commit message (although github desktop will write a default message for you if you don't).
+
+![image](https://user-images.githubusercontent.com/2446659/80925550-4571a100-8d56-11ea-98a8-40b8ecd5f956.png)
+
+Then we can click the commit to master button.
+
+At this point we have created the commit and there shouldn't be any modified files anymore. If we look at the history view we can see that there should be two commits now.
+
+![image](https://user-images.githubusercontent.com/2446659/80925636-10198300-8d57-11ea-898c-b4606f6194b0.png)
+
+Committing our change does NOT send it to the server. The commit and the file changes only exist on our computer so far.
+
+## Push
+
+The button on the top left should no longer say fetch, now it should say Push. The 1 and the up arrow means that as far as your computer knows, there is one commit that is on your computer that is not on the github server. To send our commit up to the github server, we can push that button to send our commit up.
+
+![image](https://user-images.githubusercontent.com/2446659/80925696-96ce6000-8d57-11ea-8f7e-546b17ce445f.png)
+
+Now if we refresh the landing page of our repo, we should see that there are two commits and we can see our message is now in the README on the github server.
+
+![image](https://user-images.githubusercontent.com/2446659/80925782-368bee00-8d58-11ea-905b-78f98bd942a7.png)
+
