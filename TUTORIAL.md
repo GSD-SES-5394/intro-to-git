@@ -40,7 +40,7 @@ If you look at the address bar, you'll notice the pattern for github repos is
 
 ## Install Github Desktop
 
-Git is a commandline application that you run from the terminal. Github also distributes an application called Github Desktop, which is a desktop application for Mac or Windows that may be a little easier to use.
+Git is a commandline application that you run from the terminal. Github also distributes an application called Github Desktop, which is a desktop application for Mac or Windows that may be a little easier to use. In my screenshots, I'll be using Windows, it will look a little different on a Mac, but it's fundamentally the same.
 
 To download github desktop, go to https://desktop.github.com
 
@@ -136,3 +136,8 @@ Now if we refresh the landing page of our repo, we should see that there are two
 
 ![image](https://user-images.githubusercontent.com/2446659/80925782-368bee00-8d58-11ea-905b-78f98bd942a7.png)
 
+## Next Steps
+
+* Install a decent text editor
+* Create a new branch and try merging changes across branches.
+* Try putting a non-text file into your repo like a PDF or a powerpoint document and see what happens.
