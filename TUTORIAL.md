@@ -136,6 +136,12 @@ Now if we refresh the landing page of our repo, we should see that there are two
 
 ![image](https://user-images.githubusercontent.com/2446659/80925782-368bee00-8d58-11ea-905b-78f98bd942a7.png)
 
+## Recap
+* We created a git repo on github.
+* We cloned that repo to get a local copy on our computer
+* We modified a file and committed that change.
+* We pushed our commit up to the github server.
+
 ## Next Steps
 
 * Install a decent text editor
