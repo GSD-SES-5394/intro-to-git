@@ -72,7 +72,7 @@ digraph G {
 
 ### Clone
 
-Cloning is downloading a copy of a [repo](#repository) from a [git server]($git-server) onto your computer. By default it only downloads the [master branch](#branch). An important point is that by downloading the branch, you not only get the latest version of the file, but you are also downloading the entire history of that file. A repo remembers which server it was cloned from and refers to that server as **origin**.
+Cloning is downloading a copy of a [repo](#repository) from a [git server](#git-server) onto your computer. By default it only downloads the [master branch](#branch). An important point is that by downloading the branch, you not only get the latest version of the file, but you are also downloading the entire history of that file. A repo remembers which server it was cloned from and refers to that server as **origin**.
 
 ![image](https://user-images.githubusercontent.com/2446659/80843657-74f3a280-8bca-11ea-87f9-2e6bc4cdf2e0.png)
 <!--
