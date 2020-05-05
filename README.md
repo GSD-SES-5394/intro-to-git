@@ -46,10 +46,10 @@ digraph G {
 A commit is a set of file changes. A commit can include adding, deleting, or modifying files. Commits also have a message which you can write. Usually the commit message summarizes the changes that were made.
 
 ### Branch
-A branch is a sequence of commits. The most recent commit is called the **HEAD**. You can name branches whatever you like, but the default branch is named **master**.
+A branch is a sequence of commits. The most recent commit is called the **HEAD**. You can name branches whatever you like, but the default branch is named **master**. One of the branches is the **active branch**. Only one branch can be active at a time.
 
 ### Repository
-A Repository is a collection of branches. One of these branches is your **active branch**. Only one branch can be active at a time. The files in a repository represent the latest version of the files for the active branch.
+A Repository is a collection of branches. The files in a repository represent the latest version of the files for the active branch.
 
 ### Git Server
 A Git server like github, can hold many git repositories. Your computer can also hold many git repositories. You can download and upload repositories between the git server and your computer. It is also possible to transfer commits between your computer and the git server. Sometimes repositories on a git server are called **remotes**.
@@ -72,7 +72,7 @@ digraph G {
 
 ### Clone
 
-Cloning is downloading a copy of a repo from a server onto your computer. By default it only downloads the master branch. An important point is that by downloading the branch, you not only get the latest version of the file, but you are also downloading the entire history of that file. A repo remembers which server it was cloned from and refers to that server as **origin**.
+Cloning is downloading a copy of a [repo](#repository) from a [git server]($git-server) onto your computer. By default it only downloads the [master branch](#branch). An important point is that by downloading the branch, you not only get the latest version of the file, but you are also downloading the entire history of that file. A repo remembers which server it was cloned from and refers to that server as **origin**.
 
 ![image](https://user-images.githubusercontent.com/2446659/80843657-74f3a280-8bca-11ea-87f9-2e6bc4cdf2e0.png)
 <!--
@@ -96,7 +96,7 @@ digraph G {
 }
 -->
 ### Push
-Push moves commits from your active branch to the git server. Usually your active branch has a **tracking branch** which is the branch on the server that it will push to by default. If there is no tracking branch for the active branch, then push can create one for you. Sometimes creating a new remote branch by pushing is called "Publish" but that is not a git term.
+Push moves [commits](#commit) from your [active branch](#branch) to the git server. Usually your active branch has a **tracking branch** which is the branch on the server that it will push to by default. If there is no tracking branch for the active branch, then push can create one for you. Sometimes creating a new remote branch by pushing is called "Publish" but that is not a git term.
 ![image](https://user-images.githubusercontent.com/2446659/80844584-9d7c9c00-8bcc-11ea-8c43-5cc5a9080e4c.png)
 <!--
 digraph G {
@@ -120,7 +120,7 @@ digraph G {
 -->
 
 ### Pull
-Pull moves commits from the github server to your computer, from the tracking branch to your active branch.
+Pull moves [commits](#commit) from the [git server](#git-server) to your computer, from the tracking branch to your [active branch](#branch).
 ![image](https://user-images.githubusercontent.com/2446659/80844678-de74b080-8bcc-11ea-9ba1-59b239db5221.png)
 <!--
 digraph G {
@@ -144,7 +144,7 @@ digraph G {
 -->
 
 ### Branch
-Branch makes a new branch which is a copy of the active branch. This can be done on repositories on your computer or on the Github server. Branching on the Github server is done through the web interface.
+Branch makes a new [branch](#branch) which is a copy of the active branch. This can be done on [repositories](#repository) on your computer or on the [Git server](#git-server). Branching on Github is done through the web interface.
 
 ![image](https://user-images.githubusercontent.com/2446659/80845377-9c4c6e80-8bce-11ea-9fc1-d8dd65e37cbc.png)
 <!--
@@ -162,7 +162,7 @@ digraph G {
 -->
 
 ### Merge
-Merge moves commits from one branch to another branch. You can either merge local branches on your computer or merge branches on the Github server. Merging branches on Github server is done through the web interface. Often instead of merging directly, you can create a **Pull Request** which is asking permission to merge to that branch.
+Merge moves [commits](#commit) from one [branch](#branch) to another branch. You can either merge local branches on your computer or merge branches on the Git server. Merging branches on Github is done through the web interface. Often instead of merging directly, you can create a **Pull Request** which is asking permission to merge to that branch.
 
 ![image](https://user-images.githubusercontent.com/2446659/80845161-13cdce00-8bce-11ea-9f44-7d9fb2ccacc3.png)
 <!--
@@ -179,11 +179,11 @@ digraph G {
 -->
 
 ### Checkout
-Checkout switches which branch is the active branch and replaces the files in the repository with the latest versions for that branch.
+Checkout switches which [branch](#branch) is the active branch and replaces the files in the [repository](#repository) with the latest versions for that branch.
 
 ### Add and Commit
 
-After a file has been created or modified, you need to "add" the change to the **staging area**. The staging area is where we collect file changes to create a new commit. After we have added all of the files, then we commit them to the active branch with a commit message. This creates a new commit to the active branch and that commit becomes the new HEAD for that branch.
+After a file has been created or modified, you need to "add" the change to the **staging area**. The staging area is where we collect file changes to create a new [commit](#commit). After we have added all of the files, then we commit them to the [active branch](#branch) with a commit message. This creates a new commit to the active branch and that commit becomes the new HEAD for that branch.
 
 ![image](https://user-images.githubusercontent.com/2446659/80923594-47cdfe00-8d4a-11ea-81a6-9efa0fda86fd.png)
 <!--
@@ -229,11 +229,10 @@ digraph G {
     master -> gm [label=push]
 }
 -->
-1. Clone a repo from github.
+1. [Clone](#clone) a repo from github.
 2. modify a file.
-3. add the file to stage the change
-4. commit the change to master
-5. push your commit to github
+3. [add](#add-and-commit) the file to stage the change and commit the change to master
+4. [push](#push) your commit to github
 
 ## Collaboration Workflow
 
@@ -267,17 +266,16 @@ digraph G {
     gm -> master [label="clone"]
 }
 -->
-1. Clone a repo from github
-2. Branch from master to create a new branch (named for example "Bob")
-3. Checkout Bob
+1. [Clone](#clone) a repo from github
+2. [Branch](#branch-1) from master to create a new branch (named for example "Bob")
+3. [Checkout](#checkout) Bob
 4. Modify a file
-5. Add your file to stage the change
-6. Commit your change to "Bob"
-7. Push "Bob" to the github server (creating a new tracking branch on the server). The tracking branch is also named "Bob".
+5. [Add and commit](#add-and-commit) your change to "Bob"
+7. [Push](#push) "Bob" to the github server (creating a new tracking branch on the server). The tracking branch is also named "Bob".
 8. Create a Pull request from "Bob" to master on the github server. This is usually the point where your code change can be reviewed.
-9. Complete the Pull Request by merging to master
-10. Checkout master on your computer
-11. Pull to get the changes into your copy of master.
+9. Complete the Pull Request by [merging](#merge) to master
+10. [Checkout](#checkout) master on your computer
+11. [Pull](#pull) to get the changes into your copy of master.
 
 If someone provides feedback during your pull request that requires you to make a change, you can make additional changes to the PR using steps 4-7.
 
